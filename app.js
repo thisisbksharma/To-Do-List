@@ -63,12 +63,13 @@ app.get("/:customListName",function(req, res) {
     });
 });
 app.post("/", function(req, res) {
+    let day = date.getDate();
    const itemName = req.body.newItem;
    const listName = req.body.list;
    const item = new Item( {
        name : itemName
    });
-   if(listName === "Today") {
+   if(listName === day) {
     item.save();
     res.redirect("/");
    } else {
