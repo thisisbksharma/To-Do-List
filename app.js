@@ -63,7 +63,7 @@ app.get("/:customListName",function(req, res) {
     });
 });
 app.post("/", function(req, res) {
-    let day = date.getDate();
+   let day = date.getDate();
    const itemName = req.body.newItem;
    const listName = req.body.list;
    const item = new Item( {
@@ -81,9 +81,10 @@ app.post("/", function(req, res) {
    }
 });
 app.post("/delete", function(req, res) {
+    let day = date.getDate();
     const checkedItemId = req.body.checkbox;
     const listName = req.body.listName;
-    if(listName === "Today") {
+    if(listName === day) {
         Item.findByIdAndDelete(checkedItemId, function(err) {
             if(!err) {
                 console.log("Successfully deleted checked item");
