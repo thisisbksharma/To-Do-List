@@ -8,7 +8,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 const date = require(__dirname + "/date.js");
 app.use(express.static("public"));
-mongoose.connect("mongodb+srv://admin-bk:n@NCY050@cluster0.bavec.mongodb.net/todolistDB", {useNewUrlParser : true});
+mongoose.connect("mongodb+srv://admin-bk:n@NCY050@cluster0.bavec.mongodb.net/todolistDB", {useNewUrlParser : true, useUnifiedTopology : true});
 const itemsSchema = {
     name : String
 };
